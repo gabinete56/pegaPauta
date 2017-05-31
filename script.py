@@ -4,11 +4,11 @@ import os
 
 def download_and_save(url):
 	filename = url.split('/')[-1]
-	if not os.path.isfile(filename):
+	if not os.path.isfile('data/' + filename):
 		url = '/'.join(url.split('/')[:-1]) + '/' + quote(filename)
 		if url:
 			pauta = urlopen(url)
-			with open(filename, 'b+w') as f:
+			with open('data/'+filename, 'b+w') as f:
 				f.write(pauta.read())
 
 pauta_url = "http://www.camara.sp.gov.br/atividade-legislativa/sessao-plenaria/pauta-das-sessoes/"
